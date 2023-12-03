@@ -3,24 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/b2c00ac6e0.js" crossorigin="anonymous"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
-<body>
-    <div class="main">
-        <section class="invoice-section">
-            <div class="top-section flex justify-between items-center">
-                <div class="date-section">
+<body class="p-2">
+    <div class="main w-[100%] flex flex-col gap-4 md:flex-row max-w-[1400px] mx-auto">
+        <section class="invoice-section p-1 bg-white rounded-lg md:p-12 flex flex-col gap-2">
+            <div class="top-section flex flex-col-reverse gap-2 justify-between items-center w-[100%] py-4">
+                <div class="date-section w-[100%] text-sm ">
                     <div><strong>Current Date: </strong><span></span></div>
-                    <div><strong>Due Date: </strong><input type="datetime-local"></div>
+                    <div><strong>Due Date: </strong><input type="datetime-local" class="back-every rounded-sm m-1 rounded-sm m-1"></div>
                 </div>
-                <div class="invoice-number">
-                    <div><strong>Invoice Number: </strong><input type="number"></div>
+                <div class="invoice-number w-[100%]">
+                    <div class="text-sm flex justify-end items-center w-[100%] gap-2"><strong>Invoice Number: </strong><input class="w-[20%] back-every rounded-sm m-1 rounded-sm m-1" type="number"></div>
                 </div>
             </div>
+            <hr>
+            <div class="bill-address-section py-4 w-[100%] md:flex gap-2">
+                <div class="bill-to md:flex md:flex-col w-1/2">
+                    <strong>Bill to:</strong><br>
+                    <input type="text" placeholder="who is this invoice to?" class="back-every rounded-sm m-1 rounded-sm m-1">
+                    <input type="email" placeholder="Email address" class="back-every rounded-sm m-1 rounded-sm m-1">
+                    <input type="text" placeholder="Billing address" class="back-every rounded-sm m-1 rounded-sm m-1">
+                </div>
+                <div class="bill-for md:flex md:flex-col w-1/2">
+                    <strong>Bill from:</strong><br>
+                    <input type="text" placeholder="who is this invoice for?" class="back-every rounded-sm m-1">
+                    <input type="email" placeholder="Email address" class="back-every rounded-sm m-1">
+                    <input type="text" placeholder="Billing address" class="back-every rounded-sm m-1">
+                </div>
+            </div>
+                <table class="table-fixed w-[100%]">
+                    <thead class="border-y border-gray-200 w-[100%]">
+                        <tr>
+                            <th class="w-[30%] py-2">ITEM</th>
+                            <th class="w-[20%] py-2">QTY</th>
+                            <th class="w-[20%] py-2">PRICE/RATE</th>
+                            <th class="w-[20%] py-2">ACTION</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-gray-300">
+                            <td class="p-2 flex flex-col gap-2"><input type="text" class="w-[100%] back-every rounded-sm"><input type="text" class="w-[100%] back-every rounded-sm"></td>
+                            <td class="p-2"><input type="number" class="w-[100%] back-every rounded-sm"></td>
+                            <td class="h-[100%]"><div class="h-[100%] flex justify-center items-center gap-1 back-every rounded-sm"><span class="border-2 border-gray-400 rounded-[100%] w-8 h-auto font-bold text-gray-600 text-center flex justify-center items-center">$</span><input type="number" class="w-[100%] back-every rounded-sm"></div></td>
+                            <td><div class="flex justify-center items-center"><i class="fa-regular fa-trash-can bg-red-600 p-2 cursor-pointer rounded-sm active:scale-[0.92]" style="color: #ffffff;"></i></div></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="text-center p-1 my-2 active:scale-[0.97] hover:shadow-xl bg-blue-600 text-white rounded-lg text-sm font-medium block mr-auto">Add Item</button>
+                <div class="amount w-[100%] flex flex-col gap-2 py-4">
+                    <div class="subtotal flex justify-between items-center"><strong>Subtotal: </strong><span>$1.00</span></div>
+                    <div class="discount flex justify-between items-center"><strong>Discount: </strong><span>(0%)$0.00</span></div>
+                    <div class="tax flex justify-between items-center"><strong>Tax: </strong><span>(0%)$0.00</span></div>
+                </div>
+                <div class="total-section w-[100%] border-y border-gray-300 py-4">
+                    <div class="subtotal flex justify-between items-center"><strong class="text-[16px]">Total: </strong><strong class="text-[16px]">$1.00</strong></div>
+                </div>
+                <div class="notes-section w-[100%] p-1 py-4">
+                    <strong>Notes:</strong><br>
+                    <textarea name="thanks-note" id="" cols="10" rows="1" class="back-every rounded-sm min-w-[100%]"></textarea>
+                </div>
         </section>
-        <section class="alter-view-section">
-
+        <section class="alter-view-section md:min-w-[400px] p-1 flex flex-col gap-8">
+            <button class="w-[100%] text-center p-1 active:scale-[0.97] hover:shadow-xl bg-blue-600 text-white rounded-lg text-sm font-medium">Review Invoice</button>
+            <div class="currency-tax-discount w-[100%] border-t border-gray-300 py-4 flex flex-col gap-4">
+                <div class="w-[100%]">
+                    <strong>Currency:</strong><br>
+                    <select name="currency" id="currency-alter" class="w-[100%] p-1 text-center rounded-lg border border-gray-300 outline-none">
+                        <option value="USD (United States Dollar)">USD (United States Dollar)</option>
+                        <option value="GBP (British Pound Sterling)">GBP (British Pound Sterling)</option>
+                        <option value="JPY (Japanese Yen)">JPY (Japanese Yen)</option>
+                        <option value="CAD (Canadian Dollar)">CAD (Canadian Dollar)</option>
+                        <option value="Aud (Australian Dollar)">Aud (Australian Dollar)</option>
+                        <option value="SGD (Singapore Dollar)">SGD (Singapore Dollar)</option>
+                        <option value="CNY (Chinese Renminbi)">CNY (Chinese Renminbi)</option>
+                    </select>
+                </div>
+                <div class="w-[100%]">
+                    <strong>Tax rate:</strong><br>
+                    <div class="w-[100%] flex rounded-lg border border-gray-300"><input type="number" placeholder="0.0" class="grow p-1 outline-none"><span class="w-8 border-2 border-gray-400 text-center flex justify-center items-center">%</span></div>
+                </div>
+                <div class="w-[100%]">
+                    <strong>Discount rate:</strong><br>
+                    <div class="w-[100%] flex rounded-lg border border-gray-300"><input type="number" placeholder="0.0" class="grow p-1 outline-none"><span class="w-8 border-2 border-gray-400 text-center flex justify-center items-center">%</span></div>
+                </div>
+            </div>
         </section>
     </div>
 </body>

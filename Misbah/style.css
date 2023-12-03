@@ -1,0 +1,24 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgba(184, 185, 185, 0.262);;
+}
+strong{
+    font-size: 12px;
+}
+table{
+    font-size: 12px;
+}
+.back-every{
+    background-color: rgb(173, 206, 238);
+    padding: 4px;
+}
+span{
+    font-size: 12px;
+}
+input{
+    outline: none;
+}
