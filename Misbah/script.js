@@ -40,8 +40,15 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     const renderTotalPrice = ()=>{
         total.children[1].innerHTML = '';
-        total.children[1].innerHTML = priceSection.children[0].children[1].children[1].innerText-priceSection.children[2].children[1].children[5].innerText-priceSection.children[1].children[1].children[5].innerText;
-        console.log(priceSection.children[0].children[1].children[1].innerText-priceSection.children[2].children[1].children[5].innerText-priceSection.children[1].children[1].children[5].innerText);
+        let num = priceSection.children[0].children[1].children[1].innerText;
+        let value = parseFloat(num);
+        let numDis = priceSection.children[2].children[1].children[5].innerText;
+        let valueDis = parseFloat(numDis);
+        let numTax = priceSection.children[1].children[1].children[5].innerText;
+        let valueTax = parseFloat(numTax);
+        let ans = value-valueDis-valueTax;
+        let newAns = ans.toFixed(4);
+        total.children[1].innerHTML = newAns;
     }
 
     //function to call the total price from the items
@@ -154,8 +161,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         priceSection.children[1].children[1].children[1].innerHTML = percent;
         priceSection.children[1].children[1].children[5].innerHTML = '';
         priceSection.children[1].children[1].children[5].innerHTML = (percent*(priceSub/100));
-        console.log(priceSub);
-        console.log(percent);
     }
     renderDiscountRate(0,subTotalPrice);
     //listener for discount change
@@ -173,8 +178,6 @@ document.addEventListener('DOMContentLoaded',()=>{
         priceSection.children[2].children[1].children[1].innerHTML = percent;
         priceSection.children[2].children[1].children[5].innerHTML = '';
         priceSection.children[2].children[1].children[5].innerHTML = (percent*(priceSub/100));
-        console.log(priceSub);
-        console.log(percent);
     }
     renderTaxRate(0,subTotalPrice);
     //listener for taxRate change
