@@ -153,6 +153,11 @@ document.addEventListener('DOMContentLoaded',()=>{
         renderTaxRate(taxRate.value);
         renderDiscountRate(discount.value);
         renderTotalPrice();
+        const symbolic = document.querySelectorAll('.active-symbol');
+        for(let i=0;i<symbolic.length;i++){
+        //    console.log(symbolic[i]); 
+           symbolic[i].children[0].children[0].innerText = currency.value;
+        }
     });
 
     //function for rendering the discount rate
@@ -195,7 +200,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         // console.log(symbol);
         // console.log(currency.value);
         const symbolic = document.querySelectorAll('.active-symbol');
-        symbolic[0].children[0].children[0].innerText = currency.value;
+        for(let i=0;i<symbolic.length;i++){
+        //    console.log(symbolic[i]); 
+           symbolic[i].children[0].children[0].innerText = currency.value;
+        }
         //subtotal symbol part
         priceSection.children[0].children[1].children[0].innerHTML = currency.value;
         //tax symbol part
