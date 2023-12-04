@@ -12,6 +12,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     let subTotalPrice= 0;
     //get the price section
     const priceSection = document.getElementById('price-section');
+    //get the tax rate
+    const taxRate = document.getElementById('tax');
+    // get the discount rate
+    const discount = document.getElementById('discount');
+    //get the total section
+    const total = document.getElementById('total');
     
     //function to get the current date in 'dd-mm-yyyy' format
     const date = ()=>{
@@ -32,6 +38,12 @@ document.addEventListener('DOMContentLoaded',()=>{
         priceSection.children[0].children[1].children[1].innerHTML = price;
     };
 
+    const renderTotalPrice = ()=>{
+        total.children[1].innerHTML = '';
+        total.children[1].innerHTML = priceSection.children[0].children[1].children[1].innerText-priceSection.children[2].children[1].children[5].innerText-priceSection.children[1].children[1].children[5].innerText;
+        console.log(priceSection.children[0].children[1].children[1].innerText-priceSection.children[2].children[1].children[5].innerText-priceSection.children[1].children[1].children[5].innerText);
+    }
+
     //function to call the total price from the items
     const subTotalPriceOfItems = (table)=>{
         //loop for iterating over a table to get the items
@@ -46,8 +58,6 @@ document.addEventListener('DOMContentLoaded',()=>{
           renderSubPrice(subTotalPrice);
           return subTotalPrice;
     };
-
-    
 
     //dataRow create using tr tag
     const createItem = ()=>{
@@ -100,14 +110,23 @@ document.addEventListener('DOMContentLoaded',()=>{
         action.children[0].addEventListener('click',()=>{
             dataRow.remove();
             subTotalPriceOfItems(tableBody);
+            renderTaxRate(taxRate.value);
+            renderDiscountRate(discount.value);
+            renderTotalPrice();
         });
         //rendering the sub price on change of price
         price.children[0].children[1].addEventListener('change',()=>{
             subTotalPriceOfItems(tableBody);
+            renderTaxRate(taxRate.value);
+            renderDiscountRate(discount.value);
+            renderTotalPrice();
         })
         //rendering the sub price on change of quantity
         qty.addEventListener('change',()=>{
             subTotalPriceOfItems(tableBody);
+            renderTaxRate(taxRate.value);
+            renderDiscountRate(discount.value);
+            renderTotalPrice();
         })
         
     };
@@ -120,7 +139,51 @@ document.addEventListener('DOMContentLoaded',()=>{
     addItem.addEventListener('click',()=>{
         createItem();
         subTotalPriceOfItems(tableBody);
+        renderTaxRate(taxRate.value);
+        renderDiscountRate(discount.value);
+        renderTotalPrice();
     });
+
+    //function for rendering the discount rate
+    const renderDiscountRate = (percent)=>{
+        if(percent===''){
+            percent = 0;
+        }
+        let priceSub = priceSection.children[0].children[1].children[1].innerText;
+        priceSection.children[1].children[1].children[1].innerHTML = '';
+        priceSection.children[1].children[1].children[1].innerHTML = percent;
+        priceSection.children[1].children[1].children[5].innerHTML = '';
+        priceSection.children[1].children[1].children[5].innerHTML = (percent*(priceSub/100));
+        console.log(priceSub);
+        console.log(percent);
+    }
+    renderDiscountRate(0,subTotalPrice);
+    //listener for discount change
+    discount.addEventListener('change',(event)=>{
+        renderDiscountRate(event.target.value);
+        renderTotalPrice();
+    });
+    //function for rendering the taxRate
+    const renderTaxRate = (percent)=>{
+        if(percent===''){
+            percent = 0;
+        }
+        let priceSub = priceSection.children[0].children[1].children[1].innerText;
+        priceSection.children[2].children[1].children[1].innerHTML = '';
+        priceSection.children[2].children[1].children[1].innerHTML = percent;
+        priceSection.children[2].children[1].children[5].innerHTML = '';
+        priceSection.children[2].children[1].children[5].innerHTML = (percent*(priceSub/100));
+        console.log(priceSub);
+        console.log(percent);
+    }
+    renderTaxRate(0,subTotalPrice);
+    //listener for taxRate change
+    taxRate.addEventListener('change',(event)=>{
+        renderTaxRate(event.target.value);
+        renderTotalPrice();
+    });
+    
+    
 
 
 })
