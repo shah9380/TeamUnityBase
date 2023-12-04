@@ -1,5 +1,14 @@
 document.addEventListener('DOMContentLoaded',()=>{
 
+    //top section called
+    const topSection = document.getElementById('top-section');
+    const dateSection = topSection.children[0];
+    const invoiceSection = topSection.children[1];
+    //calling the table body
+    const tableBody = document.getElementById('table-body');
+    //add item button called
+    const addItem = document.getElementById('add-item');
+    
     //function to get the current date in 'dd-mm-yyyy' format
     const date = ()=>{
         const currentdate = new Date();
@@ -10,14 +19,8 @@ document.addEventListener('DOMContentLoaded',()=>{
         return dateNow;
     };
 
-    //top section called
-    const topSection = document.getElementById('top-section');
-    const dateSection = topSection.children[0];
-    const invoiceSection = topSection.children[1];
     //setting up the current date in page
     dateSection.children[0].children[1].innerHTML = date();
-
-    const tableBody = document.getElementById('table-body');
 
     //dataRow create using tr tag
     const createItem = ()=>{
@@ -61,13 +64,24 @@ document.addEventListener('DOMContentLoaded',()=>{
         */
         //inserted the required data in qty
         action.innerHTML = `<div class="flex justify-center items-center"><i class="fa-regular fa-trash-can bg-red-600 p-2 cursor-pointer rounded-sm active:scale-[0.92]" style="color: #ffffff;"></i></div>`;
+
         //adding the data in a row
         dataRow.append(itemData, qty, price, action);
         //adding the created row in the table
         tableBody.appendChild(dataRow);
+        //adding listener for delete icon for deleting the targeted item from the table
+        action.children[0].addEventListener('click',()=>{
+            dataRow.remove();
+        });
     };
     
     //calling the createItem function to insert a row
     createItem();
+
+    //adding the listener for add item button button for adding an item in the table
+    addItem.addEventListener('click',()=>{
+        createItem();
+    });
+
     
 })
