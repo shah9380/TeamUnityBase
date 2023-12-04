@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded',()=>{
     const tableBody = document.getElementById('table-body');
     //add item button called
     const addItem = document.getElementById('add-item');
+    //subtotal price 
+    let subTotalPrice= 0;
+    //get the price section
+    const priceSection = document.getElementById('price-section');
     
     //function to get the current date in 'dd-mm-yyyy' format
     const date = ()=>{
@@ -21,6 +25,29 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     //setting up the current date in page
     dateSection.children[0].children[1].innerHTML = date();
+
+    //rendering the subprice 
+    const renderSubPrice = (price)=>{
+        priceSection.children[0].children[1].children[1].innerHTML = '';
+        priceSection.children[0].children[1].children[1].innerHTML = price;
+    };
+
+    //function to call the total price from the items
+    const subTotalPriceOfItems = (table)=>{
+        //loop for iterating over a table to get the items
+          subTotalPrice = 0;
+          for(let i=0;i< table.rows.length; i++){
+              let qnty=  table.rows[i].children[1].children[0].value;
+              // console.log(table.rows[i].children[1].children[0].value);
+              let price = table.rows[i].children[2].children[0].children[1].value;
+              // console.log(table.rows[i].children[2].children[0].children[1].value);
+              subTotalPrice +=(qnty*price);
+          }
+          renderSubPrice(subTotalPrice);
+          return subTotalPrice;
+    };
+
+    
 
     //dataRow create using tr tag
     const createItem = ()=>{
@@ -72,16 +99,28 @@ document.addEventListener('DOMContentLoaded',()=>{
         //adding listener for delete icon for deleting the targeted item from the table
         action.children[0].addEventListener('click',()=>{
             dataRow.remove();
+            subTotalPriceOfItems(tableBody);
         });
+        //rendering the sub price on change of price
+        price.children[0].children[1].addEventListener('change',()=>{
+            subTotalPriceOfItems(tableBody);
+        })
+        //rendering the sub price on change of quantity
+        qty.addEventListener('change',()=>{
+            subTotalPriceOfItems(tableBody);
+        })
+        
     };
     
     //calling the createItem function to insert a row
     createItem();
+    subTotalPriceOfItems(tableBody);
 
     //adding the listener for add item button button for adding an item in the table
     addItem.addEventListener('click',()=>{
         createItem();
+        subTotalPriceOfItems(tableBody);
     });
 
-    
+
 })
