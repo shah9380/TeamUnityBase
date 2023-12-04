@@ -48,12 +48,12 @@
                     </tbody>
                 </table>
                 <button id="add-item" class="text-center p-1 my-2 active:scale-[0.97] hover:shadow-xl bg-blue-600 text-white rounded-lg text-sm font-medium block mr-auto">Add Item</button>
-                <div id="price-section" class="amount w-[100%] flex flex-col gap-2 py-4">
+                <div id="price-section" class="amount w-[100%] flex flex-col gap-2 py-4 md:w-[50%] ml-auto">
                     <div class="subtotal flex justify-between items-center"><strong>Subtotal: </strong><span><span>$</span><span>1.00</span></span></div>
                     <div class="discount flex justify-between items-center"><strong>Discount: </strong><div><span>(</span><span>0</span><span>%</span><span>)</span><span>$</span><span>0.00</span></div></div>
                     <div class="tax flex justify-between items-center"><strong>Tax: </strong><div><span>(</span><span>0</span><span>%</span><span>)</span><span>$</span><span>0.00</span></div></div>
                 </div>
-                <div class="total-section w-[100%] border-y border-gray-300 py-4">
+                <div class="total-section md:w-[50%] w-[100%] border-y border-gray-300 py-4 ml-auto">
                     <div class="subtotal flex justify-between items-center"><strong class="text-[16px]">Total: </strong><strong class="text-[16px]" id="total"><span>$</span><span>1.00</span></strong></div>
                 </div>
                 <div class="notes-section w-[100%] p-1 py-4">
@@ -67,13 +67,13 @@
                 <div class="w-[100%]">
                     <strong>Currency:</strong><br>
                     <select name="currency" id="currency-alter" class="w-[100%] p-1 text-center rounded-lg border border-gray-300 outline-none">
-                        <option value="USD (United States Dollar)">USD (United States Dollar)</option>
-                        <option value="GBP (British Pound Sterling)">GBP (British Pound Sterling)</option>
-                        <option value="JPY (Japanese Yen)">JPY (Japanese Yen)</option>
-                        <option value="CAD (Canadian Dollar)">CAD (Canadian Dollar)</option>
-                        <option value="Aud (Australian Dollar)">Aud (Australian Dollar)</option>
-                        <option value="SGD (Singapore Dollar)">SGD (Singapore Dollar)</option>
-                        <option value="CNY (Chinese Renminbi)">CNY (Chinese Renminbi)</option>
+                        <option value="$">USD (United States Dollar)</option>
+                        <option value="£">GBP (British Pound Sterling)</option>
+                        <option value="¥">JPY (Japanese Yen)</option>
+                        <option value="C$">CAD (Canadian Dollar)</option>
+                        <option value="AU$">Aud (Australian Dollar)</option>
+                        <option value="S$">SGD (Singapore Dollar)</option>
+                        <option value="CN¥">CNY (Chinese Renminbi)</option>
                     </select>
                 </div>
                 <div class="w-[100%]">

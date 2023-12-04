@@ -18,6 +18,10 @@ document.addEventListener('DOMContentLoaded',()=>{
     const discount = document.getElementById('discount');
     //get the total section
     const total = document.getElementById('total');
+    //currency symbol
+    const symbol = total.children[0].innerText;
+    //getting the symbol from the currency
+    const currency = document.getElementById('currency-alter');
     
     //function to get the current date in 'dd-mm-yyyy' format
     const date = ()=>{
@@ -59,7 +63,7 @@ document.addEventListener('DOMContentLoaded',()=>{
               let qnty=  table.rows[i].children[1].children[0].value;
               // console.log(table.rows[i].children[1].children[0].value);
               let price = table.rows[i].children[2].children[0].children[1].value;
-              // console.log(table.rows[i].children[2].children[0].children[1].value);
+            //   console.log(table.rows[i].children[2].children[0].children[0].innerText);
               subTotalPrice +=(qnty*price);
           }
           renderSubPrice(subTotalPrice);
@@ -93,11 +97,11 @@ document.addEventListener('DOMContentLoaded',()=>{
         //created price table data
         const price = document.createElement('td');
         //adding class for price
-        const priceDataStr = 'h-[100%]';
+        const priceDataStr = 'h-[100%] active-symbol';
         const priceDataArr = priceDataStr.split(" ");
         price.classList.add(...priceDataArr);
         //inserted the required data in qty
-        price.innerHTML = `<div class="h-[100%] flex justify-center items-center gap-1 back-every rounded-sm"><span class="border-2 border-gray-400 rounded-[100%] w-8 h-auto font-bold text-gray-600 text-center flex justify-center items-center">$</span><input type="number" value="1.00" step="0.01" min="1.00" class="w-[100%] back-every rounded-sm"></div>`;
+        price.innerHTML = `<div class="h-[100%] flex justify-center items-center gap-1 back-every rounded-sm"><span class="border-2 border-gray-400 rounded-[100%] w-8 h-auto font-bold text-gray-600 text-center flex justify-center items-center">${currency.value}</span><input type="number" value="1.00" step="0.01" min="1.00" class="w-[100%] back-every rounded-sm"></div>`;
         //created sction table data
         const action = document.createElement('td');
         //adding class for price
@@ -186,7 +190,23 @@ document.addEventListener('DOMContentLoaded',()=>{
         renderTotalPrice();
     });
     
-    
-
-
+    //rendering the cureency symbols and related stuffs
+    const renderCurrencyStuff = ()=>{
+        // console.log(symbol);
+        // console.log(currency.value);
+        const symbolic = document.querySelectorAll('.active-symbol');
+        symbolic[0].children[0].children[0].innerText = currency.value;
+        //subtotal symbol part
+        priceSection.children[0].children[1].children[0].innerHTML = currency.value;
+        //tax symbol part
+        priceSection.children[2].children[1].children[4].innerHTML = currency.value;
+        //discount symbol part
+        priceSection.children[1].children[1].children[4].innerHTML = currency.value;
+        //total symbol part
+        total.children[0].innerHTML = currency.value;
+    };
+    //added listener to the currency selector
+    currency.addEventListener('change',()=>{
+        renderCurrencyStuff();
+    });
 })
