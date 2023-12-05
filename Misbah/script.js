@@ -47,10 +47,10 @@ document.addEventListener('DOMContentLoaded',()=>{
         let num = priceSection.children[0].children[1].children[1].innerText;
         let value = parseFloat(num);
         let numDis = priceSection.children[2].children[1].children[5].innerText;
-        let valueDis = parseFloat(numDis);
+        let valueTax = parseFloat(numDis);
         let numTax = priceSection.children[1].children[1].children[5].innerText;
-        let valueTax = parseFloat(numTax);
-        let ans = value-valueDis-valueTax;
+        let valueDis = parseFloat(numTax);
+        let ans = value-valueDis+valueTax;
         let newAns = ans.toFixed(4);
         total.children[1].innerHTML = newAns;
     }
@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         const qtyDataArr = qtyDataStr.split(" ");
         qty.classList.add(...qtyDataArr);
         //inserted the required data in qty
-        qty.innerHTML = `<input type="number" value="1" min="1" class="w-[100%] back-every rounded-sm">`;
+        qty.innerHTML = `<input type="number" value="1" min="0" class="w-[100%] back-every rounded-sm">`;
         //created price table data
         const price = document.createElement('td');
         //adding class for price
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         const priceDataArr = priceDataStr.split(" ");
         price.classList.add(...priceDataArr);
         //inserted the required data in qty
-        price.innerHTML = `<div class="h-[100%] flex justify-center items-center gap-1 back-every rounded-sm"><span class="border-2 border-gray-400 rounded-[100%] w-8 h-auto font-bold text-gray-600 text-center flex justify-center items-center">${currency.value}</span><input type="number" value="1.00" step="0.01" min="1.00" class="w-[100%] back-every rounded-sm"></div>`;
+        price.innerHTML = `<div class="h-[100%] flex justify-center items-center gap-1 back-every rounded-sm"><span class="border-2 border-gray-400 rounded-[100%] w-8 h-auto font-bold text-gray-600 text-center flex justify-center items-center">${currency.value}</span><input type="number" value="1.00" step="0.01" min="0.00" class="w-[100%] back-every rounded-sm"></div>`;
         //created sction table data
         const action = document.createElement('td');
         //adding class for price
@@ -174,8 +174,10 @@ document.addEventListener('DOMContentLoaded',()=>{
     renderDiscountRate(0,subTotalPrice);
     //listener for discount change
     discount.addEventListener('change',(event)=>{
-        renderDiscountRate(event.target.value);
-        renderTotalPrice();
+        if(event.target.value < 101){
+            renderDiscountRate(event.target.value);
+            renderTotalPrice();
+        }
     });
     //function for rendering the taxRate
     const renderTaxRate = (percent)=>{
@@ -191,8 +193,10 @@ document.addEventListener('DOMContentLoaded',()=>{
     renderTaxRate(0,subTotalPrice);
     //listener for taxRate change
     taxRate.addEventListener('change',(event)=>{
-        renderTaxRate(event.target.value);
-        renderTotalPrice();
+        if(event.target.value < 101){
+            renderTaxRate(event.target.value);
+            renderTotalPrice();
+        }
     });
     
 
