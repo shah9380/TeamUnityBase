@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     //get the total section
     const total = document.getElementById('total');
     //currency symbol
-    const symbol = total.children[0].innerText;
+    let symbol = total.children[0].innerText;
     //getting the symbol from the currency
     const currency = document.getElementById('currency-alter');
     
@@ -195,6 +195,26 @@ document.addEventListener('DOMContentLoaded',()=>{
         renderTotalPrice();
     });
     
+
+    const apiKey = 'fca_live_vKcoJkOnqLgfIYN0CGOFcjZs5CyOrJfqbWnS0Kbe';
+
+    // Declare a global variable
+    let globalData;
+
+    const dataFetch = async () => {
+    try {
+        const response = await fetch(`https://api.freecurrencyapi.com/v1/latest?apikey=${apiKey}`);
+        const data = await response.json();
+        // Add INR with a value of 83.37 to the data object
+        data.data.INR = 83.37;
+        return data;
+    } catch (error) {
+        console.error('Error fetching data:', error);
+        throw error;
+    }
+    };
+
+
     //rendering the cureency symbols and related stuffs
     const renderCurrencyStuff = ()=>{
         // console.log(symbol);
@@ -211,7 +231,40 @@ document.addEventListener('DOMContentLoaded',()=>{
         //discount symbol part
         priceSection.children[1].children[1].children[4].innerHTML = currency.value;
         //total symbol part
+        symbol = total.children[0].innerText;
+        console.log(symbol);
         total.children[0].innerHTML = currency.value;
+        let tempSymbol = total.children[0].innerText;
+        console.log(tempSymbol);
+        dataFetch()
+            .then((data)=>{
+                let value1;
+                let value2;
+                let prinput;
+                let afinput;
+            for(let i=0;i<symbolic.length;i++){
+                for(let key in data.data){
+                    if(key === symbol){
+                        console.log(key);
+                        console.log(data.data[key]);
+                        value1 = data.data[key];
+                        prinput = parseFloat(symbolic[i].children[0].children[1].value);
+                    }
+                    if(key === tempSymbol){
+                        value2 = data.data[key];
+                        afinput = parseFloat(symbolic[i].children[0].children[1].value);
+                    }
+                }
+                console.log(value1,"hello",value2);
+                console.log(prinput,"king",afinput);
+                console.log((prinput/value1)*(value2));
+                symbolic[i].children[0].children[1].value = ((prinput/value1)*(value2));
+                subTotalPriceOfItems(tableBody);
+                renderTaxRate(taxRate.value);
+                renderDiscountRate(discount.value);
+                renderTotalPrice();
+            }
+        })
     };
     //added listener to the currency selector
     currency.addEventListener('change',()=>{
