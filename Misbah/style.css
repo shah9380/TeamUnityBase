@@ -29,7 +29,11 @@ input{
 }
 .popup{
     position: fixed;
+    background-color: rgba(17,17,17,0.4);
+}
+.popup1{
+    position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%) scale(1);
 }

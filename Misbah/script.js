@@ -4,8 +4,16 @@ document.addEventListener('DOMContentLoaded',()=>{
     const topSection = document.getElementById('top-section');
     const dateSection = topSection.children[0];
     const invoiceSection = topSection.children[1];
+
+    //calling the bill address section
+    const billsection = document.getElementById('bill-address-section')
+
+    const billto = billsection.children[0];
+    const billfor = billsection.children[1];
+
     //calling the table body
     const tableBody = document.getElementById('table-body');
+    const tableBodypop = document.getElementById('table-body-pop');
     //add item button called
     const addItem = document.getElementById('add-item');
     //subtotal price 
@@ -22,7 +30,18 @@ document.addEventListener('DOMContentLoaded',()=>{
     let symbol = total.children[0].innerText;
     //getting the symbol from the currency
     const currency = document.getElementById('currency-alter');
-    
+    const mainPopUp = document.getElementById('popup-main');
+    //getting the review button 
+    const reviewBtn = document.getElementById('review');
+
+    const nameSection = document.getElementById('name-section-pop');
+
+
+    const billSectionPop = document.getElementById('bill-section-pop');
+    const billToPop = billSectionPop.children[0];
+    const billForPop = billSectionPop.children[1];
+    const billIssueDate = billSectionPop.children[2];
+
     //function to get the current date in 'dd-mm-yyyy' format
     const date = ()=>{
         const currentdate = new Date();
@@ -35,6 +54,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 
     //setting up the current date in page
     dateSection.children[0].children[1].innerHTML = date();
+
+
 
     //rendering the subprice 
     const renderSubPrice = (price)=>{
@@ -274,4 +295,85 @@ document.addEventListener('DOMContentLoaded',()=>{
     currency.addEventListener('change',()=>{
         renderCurrencyStuff();
     });
+
+    reviewBtn.addEventListener('click',()=>{
+        //issue date
+        const issuedate = dateSection.children[1].children[1].value;
+        console.log(issuedate);
+
+        //invoice number
+        const invoiceNumber = invoiceSection.children[0].children[1].value;
+        console.log(invoiceNumber);
+
+        //bill to
+        const nameto = billto.children[2].value;
+        const emailto = billto.children[3].value;
+        const addressto = billto.children[4].value;
+
+        //bill from
+        const namefor = billfor.children[2].value;
+        const emailfor = billfor.children[3].value;
+        const addressfor = billfor.children[4].value;
+
+        console.log(nameto, namefor, emailto, emailfor, addressto, addressfor);
+
+        nameSection.children[0].children[1].children[0].innerText = invoiceNumber;
+        nameSection.children[0].children[0].innerText = nameto;
+        console.log(nameSection.children[0].children[0].innerText);
+                                        //td         //td inside
+
+        billToPop.children[1].innerText = nameto; 
+        billToPop.children[2].innerText = emailto; 
+        billToPop.children[3].innerText = addressto; 
+
+        billForPop.children[1].innerText = namefor; 
+        billForPop.children[2].innerText = emailfor; 
+        billForPop.children[3].innerText = addressfor; 
+
+        billIssueDate.children[1].innerText = issuedate;
+                                    
+        console.log(tableBody.children.length,"length");
+
+        for(let i=0;i<tableBody.children.length;i++){
+            //item name
+            const itemName = tableBody.children[i].children[0].children[0].value;
+            const itemDescription = tableBody.children[i].children[0].children[1].value;
+
+            console.log(itemName+"-"+itemDescription);
+
+            //updated qty
+            const updatedQty = tableBody.children[i].children[1].children[0].value;
+            console.log(updatedQty);
+
+            const price = tableBody.children[i].children[1].children[0].value;
+            console.log(price);
+
+            const amountu = parseFloat(updatedQty)*parseFloat(price);
+
+            //created a row for a table
+            const popupRow = document.createElement('tr');
+            //adding class for item
+            const prowDataStr = 'border-b border-gray-200';
+            const prowDataArr = prowDataStr.split(" ");
+            popupRow.classList.add(...prowDataArr);
+
+            popupRow.innerHTML = `<td class="px-4 py-2">${updatedQty}</td>
+            <td>${itemName} - ${itemDescription}</td>
+            <td>$ ${price}</td>
+            <td>$ ${amountu}</td>`;
+            tableBodypop.appendChild(popupRow);
+        }
+
+        
+
+        
+
+        mainPopUp.style.display = 'block';
+        //new one
+    })
+    mainPopUp.addEventListener('click',()=>{
+        mainPopUp.style.display = 'none';
+    })
+
+    
 })
