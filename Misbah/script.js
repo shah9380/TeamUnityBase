@@ -297,6 +297,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     });
 
     reviewBtn.addEventListener('click',()=>{
+        tableBodypop.innerHTML = '';
+        const subtotalPop = document.getElementById('subtotalpop');
+        const totalPop = document.getElementById('totalpop');
+        const symbolpop = priceSection.children[0].children[1].children[0].innerText;
+        const totally = document.getElementById('totally').innerText;
+
         //issue date
         const issuedate = dateSection.children[1].children[1].value;
         console.log(issuedate);
@@ -319,9 +325,10 @@ document.addEventListener('DOMContentLoaded',()=>{
 
         nameSection.children[0].children[1].children[0].innerText = invoiceNumber;
         nameSection.children[0].children[0].innerText = nameto;
-        console.log(nameSection.children[0].children[0].innerText);
-                                        //td         //td inside
+        console.log(nameSection.children[1].children[0].children[0].innerText);
 
+        nameSection.children[1].children[0].children[0].innerHTML = `${symbolpop} ${totally}`;
+                                        //td         //td inside
         billToPop.children[1].innerText = nameto; 
         billToPop.children[2].innerText = emailto; 
         billToPop.children[3].innerText = addressto; 
@@ -359,17 +366,21 @@ document.addEventListener('DOMContentLoaded',()=>{
 
             popupRow.innerHTML = `<td class="px-4 py-2">${updatedQty}</td>
             <td>${itemName} - ${itemDescription}</td>
-            <td>$ ${price}</td>
-            <td>$ ${amountu}</td>`;
+            <td>${symbolpop} ${price}</td>
+            <td>${symbolpop} ${amountu}</td>`;
             tableBodypop.appendChild(popupRow);
         }
 
-        
+        const subTotal = priceSection.children[0].children[1].children[1].innerText;
 
+        subtotalPop.innerHTML = `${symbolpop} ${subTotal}`;
+        totalPop.innerHTML = `${symbolpop} ${totally}`;
+        console.log(priceSection.children[0].children[1].children[1].innerText);
         
-
-        mainPopUp.style.display = 'block';
+        if(issuedate && invoiceNumber && nameto && namefor && emailto && emailfor && addressto && addressfor){
+            mainPopUp.style.display = 'block';
         //new one
+        }
     })
     mainPopUp.addEventListener('click',()=>{
         mainPopUp.style.display = 'none';

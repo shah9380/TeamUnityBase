@@ -9,12 +9,12 @@
     <title>Document</title>
 </head>
 <body class="">
-    <div class="main w-[100%] flex flex-col gap-4 md:flex-row max-w-[1400px]">
+    <form class="main w-[100%] flex flex-col gap-4 md:flex-row max-w-[1400px]">
         <section class="invoice-section p-1 bg-white rounded-lg md:p-12 flex flex-col gap-2">
             <div id="top-section" class="top-section flex flex-col-reverse gap-2 justify-between items-center w-[100%] py-4">
                 <div class="date-section w-[100%] text-sm ">
                     <div><strong>Current Date: </strong><span></span></div>
-                    <div><strong>Due Date: </strong><input type="date" class="back-every rounded-sm m-1 rounded-sm m-1"></div>
+                    <div><strong>Due Date: </strong><input required type="date" class="back-every rounded-sm m-1 rounded-sm m-1"></div>
                 </div>
                 <div class="invoice-number w-[100%]">
                     <div class="text-sm flex justify-end items-center w-[100%] gap-2"><strong>Invoice Number: </strong><input class="w-[20%] back-every rounded-sm m-1 rounded-sm m-1" type="number" value="1" min="1"></div>
@@ -24,15 +24,15 @@
             <div id="bill-address-section" class="bill-address-section py-4 w-[100%] md:flex gap-2">
                 <div class="bill-to md:flex md:flex-col w-1/2">
                     <strong>Bill to:</strong><br>
-                    <input type="text" placeholder="who is this invoice to?" class="back-every rounded-sm m-1 rounded-sm m-1">
-                    <input type="email" placeholder="Email address" class="back-every rounded-sm m-1 rounded-sm m-1">
-                    <input type="text" placeholder="Billing address" class="back-every rounded-sm m-1 rounded-sm m-1">
+                    <input required type="text" placeholder="who is this invoice to?" class="back-every rounded-sm m-1 rounded-sm m-1">
+                    <input required type="email" placeholder="Email address" class="back-every rounded-sm m-1 rounded-sm m-1">
+                    <input required type="text" placeholder="Billing address" class="back-every rounded-sm m-1 rounded-sm m-1">
                 </div>
                 <div class="bill-for md:flex md:flex-col w-1/2">
                     <strong>Bill from:</strong><br>
-                    <input type="text" placeholder="who is this invoice for?" class="back-every rounded-sm m-1">
-                    <input type="email" placeholder="Email address" class="back-every rounded-sm m-1">
-                    <input type="text" placeholder="Billing address" class="back-every rounded-sm m-1">
+                    <input required type="text" placeholder="who is this invoice for?" class="back-every rounded-sm m-1">
+                    <input required type="email" placeholder="Email address" class="back-every rounded-sm m-1">
+                    <input required type="text" placeholder="Billing address" class="back-every rounded-sm m-1">
                 </div>
             </div>
                 <table class="table-fixed w-[100%]">
@@ -54,7 +54,7 @@
                     <div class="tax flex justify-between items-center"><strong>Tax: </strong><div><span>(</span><span>0</span><span>%</span><span>)</span><span>AUD</span><span>0.00</span></div></div>
                 </div>
                 <div class="total-section md:w-[50%] w-[100%] border-y border-gray-300 py-4 ml-auto">
-                    <div class="subtotal flex justify-between items-center"><strong class="text-[16px]">Total: </strong><strong class="text-[16px]" id="total"><span>AUD</span><span>1.00</span></strong></div>
+                    <div class="subtotal flex justify-between items-center"><strong class="text-[16px]">Total: </strong><strong class="text-[16px]" id="total"><span>AUD</span><span id="totally">1.00</span></strong></div>
                 </div>
                 <div class="notes-section w-[100%] p-1 py-4">
                     <strong>Notes:</strong><br>
@@ -62,7 +62,7 @@
                 </div>
         </section>
         <section class="alter-view-section md:min-w-[400px] p-1 flex flex-col gap-8">
-            <button id="review" class="w-[100%] md:mt-2 text-center p-1 py-2 active:scale-[0.97] hover:shadow-xl bg-blue-600 text-white rounded-lg text-sm font-medium">Review Invoice</button>
+            <button type="submit" id="review" class="w-[100%] md:mt-2 text-center p-1 py-2 active:scale-[0.97] hover:shadow-xl bg-blue-600 text-white rounded-lg text-sm font-medium">Review Invoice</button>
             <div class="currency-tax-discount w-[100%] border-t border-gray-300 py-4 flex flex-col gap-4">
                 <div class="w-[100%]">
                     <strong>Currency:</strong><br>
@@ -132,12 +132,12 @@
                         <div class="border-y border-gray-200 mt-8 mx-4">
                             <div class="flex justify-end items-center pl-24 md:pl-48 lg:pl-96 py-1">
                                 <strong class="grow text-start">SUBTOTAL</strong>
-                                <div>$ 1.00</div>
+                                <div id="subtotalpop">$ 1.00</div>
                             </div>
                             <hr>
                             <div class="flex justify-end items-center pl-24 md:pl-48 lg:pl-96 py-1">
                                 <strong class="grow text-start">TOTAL</strong>
-                                <div>$ 1</div>
+                                <div id="totalpop">$ 1</div>
                             </div>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </form>
     
     <script defer src="script.js"></script>
     <script src="apikey.js"></script>
