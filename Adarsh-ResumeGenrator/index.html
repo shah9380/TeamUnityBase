@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume template</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="nav">
+      <img src="R.png" alt="res-icon" />
+      <!-- <h2 style="color: rgb(91, 166, 101);">Resume Generator</h2> -->
+      <button id="download-pdf" onclick="generatePDF()">Download PDF</button>
+    </div>
+
+    <div class="Container">
+      <div class="container1" id="container1">
+        <div class="div1">
+          <h3>Template Type</h3>
+
+          <select id="optionSelect" class="optionSel">
+            <option value="option1" id="option1">TWO COLUMN</option>
+            <option value="option2" id="option2">MINIMALIST</option>
+          </select>
+        </div>
+
+        <br />
+        <h3>Header Color</h3>
+        <input type="color" id="headerColor" class="borderNO" />
+
+        <h3>Head-Text-Color</h3>
+        <input type="color" id="headTextColor" class="borderNO" />
+        <br />
+
+        <div class="div3">
+          <h3>Personal Details</h3>
+          <input
+            type="text"
+            id="userName"
+            placeholder="Name"
+            class="details"
+            required
+          />
+          <br /><br />
+          <input
+            type="email"
+            id="userEmail"
+            placeholder="Email-Id"
+            class="details"
+            required
+          />
+          <br /><br />
+          <input
+            type="text"
+            id="phoneNumber"
+            placeholder="Phone"
+            class="details"
+            required
+          />
+          <br /><br />
+          <input
+            type="text"
+            id="place"
+            placeholder="City,Country"
+            class="details"
+            required
+          />
+        </div>
+
+        <br />
+
+        <div class="div4">
+          <h3>Professional Details</h3>
+          <input
+            type="text"
+            id="jobTitle"
+            placeholder="Wanted Job Title"
+            class="details"
+            required
+          />
+          <br /><br />
+          <textarea
+            name="professionalSum"
+            id="summary"
+            placeholder="Professional Summary"
+            cols="30"
+            rows="10"
+            class="details"
+          ></textarea>
+          <br /><br />
+
+          <input type="text" id="skills" placeholder="Skills" class="details" />
+        </div>
+
+        <br />
+        <button id="employment" class="sub-btn">Add Employment</button> <br />
+        <!-- <div class="employmentContainer">
+                <label for="datestart">Start Date</label>
+                <input type="date" placeholder="dd-mm-yyyy" class="details2" id="employSD">
+                <label for="dateend">End Date</label>
+                <input type="date" placeholder="dd-mm-yy" class="details2" id="employED">
+                <input type="text" placeholder="Job-Title" class="details2" id="employJT">
+                <input type="text" placeholder="Employer" class="details2" id="employED">
+                <textarea name="description" placeholder="Description" id="employJobDesc" cols="30" rows="7" style="border: none; border: radius 4px;" ></textarea>
+            </div> -->
+        <button id="project" class="sub-btn">Add Project</button>
+        <!-- <div class="projectsContainer">
+            <label for="dateStart">Start Date</label>
+            <input type="date" placeholder="dd-mm-yyyy" class="details2" id="projectSD">
+            <label for="dateEnd">End Date</label>
+            <input type="date" placeholder="dd-mm-yy" class="details2" id="projectED">
+            <input type="text" placeholder="projectTitle" class="details2" id="projectTI">
+            <textarea name="desc" placeholder="Project-Description" id="projectDesc" cols="30" rows="7" style="border: none; border: radius 4px;" ></textarea>
+        </div>  -->
+
+        <br />
+
+        <h3 id="edBack">Educational Background</h3>
+        <button id="education" class="sub-btn">Add Education</button>
+        <!-- <div class="educationContainerInput">
+            <label for="dateStart">Start Date</label>
+            <input type="date" placeholder="dd-mm-yyyy" class="details2" id="educationSD">
+            <label for="dateEnd">End Date</label>
+            <input type="date" placeholder="dd-mm-yy" class="details2" id="educationED">
+            <input type="text" placeholder="Qualification" class="details2" id="educationEQ">
+            <input type="text" placeholder="School/College" class="details2" id="educationSC">
+            <textarea name="desc" placeholder="Description" id="educationDesc" cols="30" rows="7" style="border: none; border: radius 4px;" ></textarea>
+        </div>  -->
+      </div>
+
+
+<!-- -----------------------------container 2 start-------------------- -->
+      <div class="container2" id="container2">
+        <div class="nameSection" id="nameSection">
+          <h2 id="c1-name" class="text">Adarsh Baghel</h2>
+          <p id="c1-professnal" class="text">SDE</p>
+        </div>
+
+        <div class="innerContainer">
+          <div class="skillsContact">
+            <h4 id="skills2">SKILLS</h4>
+            <hr />
+            <span id="c2-skillContent" class="skillContent"></span>
+            <br />
+
+            <h4 id="contactNo">CONTACT</h4>
+            <hr />
+            <br />
+            <i class="fa-solid fa-phone"></i
+            ><span id="c2-phoneNumberOutput">9999999</span>
+            <br />
+            <i class="fa-solid fa-envelope"></i
+            ><span id="c2-emailOutput">xyz@gmail.com</span><br />
+            <i class="fa-solid fa-location-dot"></i>
+            <span id="c2-placeOutput">Pune Maharashtra</span>
+          </div>
+          <div class="summaryHead">
+            <h4 id="summaryHead">SUMMARY</h4>
+            <hr />
+            <br />
+            <p id="c2-summaryOutput" style="margin-bottom:5px; ">A Software Development Engineer (SDE) is responsible for creating cross-platform applications and software systems, applying the principles of computer science, computer engineering, information technology and analysis to help organizations and individuals make informed decisions.</p>
+
+            <h4 id="professional-exp" >PROFESSIONAL EXPERIENCE</h4>
+            <hr />
+            <div class="employmentContainerOutput">
+                <p>Start Date - <span id="c2-startDateS">01-01-2022</span> </p>
+                <p>End Date - <span id="c2-endDateE">01-01-2023</span></p>
+                <p id="c2-jobTitleOutput">SDE</p>
+                <p id="c2-employersNameO">Employer's Name </p>
+                <p id="c2-proffDescOut">Description</p>
+            </div>
+
+           
+            <br />
+            <p></p>
+            <h4 id="projects2">PROJECTS</h4>
+            <hr />
+             <div class="projectsContainerOutput">
+                <p>Start Date - <span id="c2-startDateSP">01-01-2022</span> </p>
+                <p>End Date - <span id="c2-endDateEP">01-01-2023</span></p>
+                <p id="c2-projectTitleOutput">Project Title</p>
+                <p id="c2-projectDescOutput">Project Description</p>
+             </div>
+
+            <br />
+            <h4 id="education2">EDUCATION</h4>
+            <hr />
+
+            <div class="educationContainerOutput">
+                <p>Start Date - <span id="c2-startDateSE">01-01-2022</span> </p>
+                <p>End Date - <span id="c2-endDateEE">01-01-2023</span></p>
+                <p id="c2-eduQualification">Qualification</p>
+                <p id="c2-eduSchool">School/College</p>
+                <p id="c2-eduDesc">Description</p>
+            </div>
+        </div>
+        </div>
+      </div>
+
+
+
+       <!------------------Container3 Start-------------------  -->
+      <div class="container3" style="display: none;" id="container3">
+            <div class="upperContainer">
+                <div class="nameSec">
+                    <h2 id="c2-name" class="text">Adarsh Baghel</h2>
+                    <p id="c2-professnal" class="text">SDE</p>
+                </div>
+
+                <div class="contactSection">
+                   <i class="fa-solid fa-phone"></i
+                       ><span id="c3-phoneNumberOutput">9999999</span>
+                       <br />
+                       <i class="fa-solid fa-envelope"></i
+                       ><span id="c3-emailOutput">xyz@gmail.com</span><br />
+                       <i class="fa-solid fa-location-dot"></i>
+                       <span id="c3-placeOutput">Pune Maharashtra</span>
+                </div>
+            </div>
+
+            <div class="lowerContainer">
+                <div class="summaryH">
+                    <h4 id="summaryHead">SUMMARY<H/h4>
+                    <hr />
+                    <br />
+                    <p id="c3-summaryOutput">A Software Development Engineer (SDE) is responsible for creating cross-platform applications and software systems, applying the principles of computer science, computer engineering, information technology and analysis to help organizations and individuals make informed decisions.</p>
+                </div>
+
+                <div class="skillsCon">
+                    <h4 id="skills2">SKILLS</h4>
+                    <hr />
+                    <span id="c3-skillContent" class="skillContent"></span>
+                    <br />
+
+                </div>
+
+                <h4 id="professional-exp">PROFESSIONAL EXPERIENCE</h4>
+                <hr />
+                <div class="employmentContainerOutput">
+                    <p>Start Date - <span id="c3-startDateS">01-01-2022</span> </p>
+                    <p>End Date - <span id="c3-endDateE">01-01-2023</span></p>
+                    <p id="c3-jobTitleOutput">SDE</p>
+                    <p id="c3-employersNameO">Employer's Name </p>
+                    <p id="c3-proffDescOut">Description</p>
+                </div>
+
+
+                <br />
+                <p></p>
+                <h4 id="projects2">PROJECTS</h4>
+                <hr />
+                <div class="projectsContainerOutput">
+                   <p>Start Date - <span id="c3-startDateSP">01-01-2022</span> </p>
+                   <p>End Date - <span id="c3-endDateEP">01-01-2023</span></p>
+                   <p id="c3-projectTitleOutput">Project Title</p>
+                   <p id="c3-projectDescOutput">Project Description</p>
+                </div>
+
+                <br />
+                <h4 id="education2">EDUCATION</h4>
+                <hr />
+    
+                <div class="educationContainerOutput">
+                    <p>Start Date - <span id="c3-startDateSE">01-01-2022</span> </p>
+                    <p>End Date - <span id="c3-endDateEE">01-01-2023</span></p>
+                    <p id="c3-eduQualification">Qualification</p>
+                    <p id="c3-eduSchool">School/College</p>
+                    <p id="c3-eduDesc">Description</p>
+                </div>
+
+
+
+           </div>
+
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js" integrity="sha512-YcsIPGdhPK4P/uRW6/sruonlYj+Q7UHWeKfTAkBW+g83NKM+jMJFJ4iAPfSnVp7BKD4dKMHmVSvICUbE/V1sSw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="script.js"></script>
+  </body>
+</html>

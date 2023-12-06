@@ -1,0 +1,238 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(243,244,246);
+    width:100vw;
+   
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif
+
+}
+
+.Container{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+}
+/* ----------start---nav section -------------*/
+
+
+.nav{
+    border: 1px solid grey;
+    width:100vw;
+    height:45px;
+
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border:none;
+    padding:0 20px;
+
+    margin-bottom: 15px;
+
+}
+
+.nav img{
+    height: 35px;
+
+}
+
+#download-pdf{
+    padding:10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+
+/* -----------------Container1 start---------------- */
+
+
+.container1{
+    width: 45%;
+    border:1px solid black;
+
+    
+    margin-left: 15px;
+    
+    border: none;
+
+}
+
+.optionSel{
+    width:90%;
+    height: 30px;
+    margin-top: 6px;
+    
+}
+
+.borderNO{
+    border:none;
+    
+}
+
+.details{
+    width:90%;
+    height:30px;
+    border:none;
+    border-radius: 4px;
+}
+
+.details2{
+    width:100%;
+    height:30px;
+    border:none;
+    border-radius: 4px;
+}
+
+.employmentContainer{
+    display: flex;
+    flex-direction: column;
+    gap:6px;
+    width:90%;
+    margin-bottom: 10px;
+}
+
+.projectsContainer{
+    display: flex;
+    flex-direction: column;
+    gap:6px;
+    width:90%;
+    margin-bottom: 10px;
+}
+
+.educationContainerInput{
+    display: flex;
+    flex-direction: column;
+    gap:6px;
+    width:90%;
+    margin-bottom: 10px;
+}
+
+
+
+
+#professionalSum1{
+    height: 70px;
+}
+
+h3{
+    margin-bottom: 5px;
+}
+
+
+.sub-btn{
+    padding:4px 60px;
+    background-color: green;
+    color: white;
+    border: none;
+    width:90%;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+
+/* ----------------------Container-1 End-------------------- *
+
+/* ----------------------Container2 start------------------- */
+
+.container2{
+    width: 60%;
+    height: auto;
+    border:1px solid black;
+    margin-right: 30px;
+    margin-bottom: 5px;
+    border: none;
+
+}
+
+.nameSection{
+    width:100%;
+    height: 150px;
+    background-color:rgb(51,65,85);
+    color:white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+    gap: 5px;
+
+
+}
+
+.innerContainer{
+    display: flex;
+    width: 100%;
+    height: 80%;
+    background-color: white;
+}
+
+.skillsContact{
+    width:30%;
+    background-color: rgb(219, 219, 220);
+    border: 1px solid gray;
+    border: none;
+    padding:  10px;
+}
+
+/* #skillContent{
+    font-weight: 400;
+    font-size: large;
+    color: rgb(54, 53, 50);
+} */
+.summaryHead{
+    padding: 10px;   
+    width:70%;
+}
+
+.fa-solid{
+    margin-bottom: 10px;
+    margin-right: 5px;
+}
+
+
+
+
+/* -------------------container3------------------------ */
+
+
+.container3{
+    width: 60%;
+    height: auto;
+    border:1px solid black;
+    margin-right: 30px;
+    margin-bottom: 5px;
+    border: none;
+    
+
+
+}
+
+.upperContainer{
+    width:100%;
+    height:160px;
+    background-color: rgb(181, 186, 191);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+}
+.lowerContainer{
+    padding-left: 15px;
+    background-color: white;
+    height: 100vh
+}
+.summaryH{
+    margin: 10px 0;
+}
+
