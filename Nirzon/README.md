@@ -2,6 +2,17 @@
 
 ## [Chrome Webstore Link](https://chromewebstore.google.com/detail/youtube-bookmarker/klmdcdoegkdbbpkbfaaflmadoiboplbl)
 
+## [Video Demo](https://youtu.be/RtcAkdANDSg)
+
+## Screenshots
+![Button in player](https://github.com/shah9380/TeamUnityBase/assets/25417313/376f8386-61eb-4694-b5fa-e5d761d82004)
+![Popup Light Mode](https://github.com/shah9380/TeamUnityBase/assets/25417313/39c21441-9d16-4292-a89d-257d8592ad50)
+![All bookmarks Light Mode](https://github.com/shah9380/TeamUnityBase/assets/25417313/b0e58b0c-52f9-4419-9323-62496e89e619)
+![Popup Dark Mode](https://github.com/shah9380/TeamUnityBase/assets/25417313/4dd16f7c-95ee-40a8-be69-384b399207bd)
+![All bookmarks Dark Mode](https://github.com/shah9380/TeamUnityBase/assets/25417313/b90ebccf-a982-4a97-80f2-414f0c057075)
+
+
+
 ## [Main repository](https://github.com/nirzon47/youtube-bookmark-extension)
 
 Working on adding the extension to chrome webstore, link will be updated...
