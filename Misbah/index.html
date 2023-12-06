@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Document</title>
 </head>
-<body class="p-2">
+<body class="p-2">Cortana
     <div class="main w-[100%] flex flex-col gap-4 md:flex-row max-w-[1400px] mx-auto">
         <section class="invoice-section p-1 bg-white rounded-lg md:p-12 flex flex-col gap-2">
             <div id="top-section" class="top-section flex flex-col-reverse gap-2 justify-between items-center w-[100%] py-4">
@@ -87,7 +87,74 @@
                 </div>
             </div>
         </section>
+        <div class="">
+            <div class="popup bg-gray-200 max-w-[800px] min-w-[300px]">
+                <div class="pdf-section" >
+                    <div id="name-section" class="flex justify-between items-start p-4">
+                        <div>
+                            <h2 class="font-bold">shah Islam</h2>
+                            <div class="text-gray-500 text-sm font-semibold">Invoice #: <span>1</span></div>
+                        </div>
+                        <div><strong class="font-bold">Amount Due: <span class="text-gray-500 text-sm font-medium">$0.9524244244</span></strong></div>
+                    </div>
+                    <div class="bg-white">
+                        <div id="bill-section" class="p-4 md:flex gap-8">
+                            <div>
+                                <strong>Billed to:</strong><br>
+                                <p>shah misbahul islam</p>
+                                <p>address to</p>
+                                <p>shahislam9380@gmail.com</p>
+                            </div>
+                            <div>
+                                <strong>Billed to:</strong><br>
+                                <p>shah misbahul islam</p>
+                                <p>address to</p>
+                                <p>shahislam9380@gmail.com</p>
+                            </div>
+                            <div>
+                                <strong>Date Of Issue</strong>
+                                <p>2023-12-14</p>
+                            </div>
+                        </div>
+                        <table class="table-fixed relative mx-4">
+                            <thead class="border-y border-gray-200">
+                                <tr class="max-w-[100%]">
+                                    <th class="w-[18%] lg:w-[10%] md:w-[15%] py-2 text-start pl-4 text-sm">QTY</th>
+                                    <th class="w-[30%] md:w-[40%] lg:w-[40%] py-2 text-start text-sm">DESCRIPTION</th>
+                                    <th class="w-[20%] lg:w-[10%] md:w-[20%] py-2 text-start text-sm">PRICE</th>
+                                    <th class="w-[22%] lg:w-[10%] md:w-[15%] py-2 text-start text-sm">AMOUNT</th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-body">
+                                <tr class="border-b border-gray-200">
+                                    <td class="px-4 py-2">1</td>
+                                    <td>itemname-description</td>
+                                    <td>$ 1.00</td>
+                                    <td>$ 1</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="border-y border-gray-200 mt-8 mx-4">
+                            <div class="flex justify-end items-center pl-24 md:pl-48 lg:pl-96 py-1">
+                                <strong class="grow text-start">SUBTOTAL</strong>
+                                <div>$ 1.00</div>
+                            </div>
+                            <hr>
+                            <div class="flex justify-end items-center pl-24 md:pl-48 lg:pl-96 py-1">
+                                <strong class="grow text-start">TOTAL</strong>
+                                <div>$ 1</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="buttons-section bg-white flex gap-4 px-4 pt-10 pb-4">
+                    <button class="grow rounded-lg text-center py-2 bg-blue-600 text-white active:scale-[0.97] duration-300 ease-in-out"><i class="fa-regular fa-paper-plane"></i> Send Invoice</button>
+                    <button class=" grow rounded-lg text-center py-2 border border-blue-600 text-blue-600 hover:text-white hover:bg-blue-600 duration-300 ease-in-out active:scale-[0.97]"><i class="fa-solid fa-cloud-arrow-down"></i> Download Copy</button>
+                </div>
+            </div>
+        </div>
     </div>
+    
     <script defer src="script.js"></script>
     <script src="apikey.js"></script>
 </body>

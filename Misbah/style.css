@@ -27,3 +27,9 @@ input{
     top: 0;
     height: 100vh; /* Adjust the height as needed */
 }
+.popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
