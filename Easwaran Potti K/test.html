@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./common.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <section>
+        <button id="open" onclick="addPopUp(event)">Click me please</button>
+        <div class="modal-container" >
+            <div class="modal flex flex-col items-start font-bold">
+                
+                <div class="flex mb-[15px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 7 4 4 20 4 20 7"></polyline><line x1="9" y1="20" x2="15" y2="20"></line><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+                    <p>&nbsp;&nbsp;Title</p>
+                </div>
+                <div><input type="text" placeholder="Add card title here" class="border-solid"></div>
+                <br>
+
+                <div class="flex mb-[15px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                    <p>&nbsp;&nbsp;Description</p>
+                </div>
+                <div><input type="text" placeholder="Add a description"></div>
+                <br>
+
+                <div class="flex mb-[15px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                    <p>&nbsp;&nbsp;Date</p>
+                </div>
+                <div><input type="date" ></div>
+                <br>
+
+                <div class="flex mb-[15px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                    <p>&nbsp;&nbsp;Labels</p>
+                </div>
+                <div class="mb-[5px]"><ul class="flex gap-[10px]"><li class="" style="background-color: rgb(168, 25, 61);"></li><li class="" style="background-color: rgb(79, 204, 37);"></li><li class="li-active" style="background-color: rgb(30, 191, 250);"></li><li class="" style="background-color: rgb(141, 163, 119);"></li><li class="" style="background-color: rgb(153, 117, 189);"></li><li class="" style="background-color: rgb(207, 97, 161);"></li><li class="" style="background-color: rgb(36, 9, 89);"></li></ul></div>
+                <div><input type="text" placeholder="Enter label name"></div>
+                <br>
+
+                <div class="flex mb-[15px]">
+                    <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                    <p>&nbsp;&nbsp;Tasks</p>
+                </div>
+                <div><input type="text" placeholder="Task pending"></div>
+                <div><input type="text" placeholder="Total no of task"></div>
+                <br>
+
+
+
+                <button id="close" onclick="removePopUp(event)">Save & Close</button>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="./script.js"></script>
+</html>
+
+
+
+
+
+let draggableElements = document.querySelectorAll('.taskToDo')
+let dropableElements = document.querySelectorAll('.containerAll')
+
+
+draggableElements.forEach(elem=>{
+    elem.addEventListener("dragstart",dragStart)
+    //similarly we also have drag - continuosly fires when iam dragging an element
+    //dragend - fired when dragend has occured
+})
+
+dropableElements.forEach(elem=>{
+    elem.addEventListener("dragover",dragOver)
+    elem.addEventListener("drop",drop)
+})
+
+
+function dragStart(event){
+     console.log(event.target)
+    event.dataTransfer.setData("htmlCode", event.target)
+    cardData =event.target
+
+}
+
+function dragOver(event){
+    event.preventDefault();  // when you hover over drop place an x will apper to remove this x - this code is written
+}
+
+function drop(event){
+    event.preventDefault(); //suppose if you drop an image, it fills the entire scree -to prevent this
+    let htmlCode = event.dataTransfer.getData("htmlCode")
+    //event.target.innerHTML += htmlCode.value
+   // console.log(cardData)
+}

@@ -1,0 +1,32 @@
+
+<!-- 
+after clicking add board button , add this -->
+
+<div class="oneCard bg-[#cccccc]/50 text-[#17394d] w-[290px] px-[10px] py-[20px] rounded h-min">
+    <div class="heading flex justify-between font-bold">
+        <p>Discover</p>
+        <div class="dropdown">
+            <a class="link" onclick="this.parentElement.querySelector('.dropdown-menu').style.display='block'"><span class="material-symbols-outlined">more_horiz</span></a>
+            <div class="dropdown-menu" onclick="deleteBoard(event)" >
+                Delete Board
+            </div>
+        </div>
+    </div>
+    <div class="data bg-[#f8f8f8] p-[10px] rounded-[5px] flex flex-col gap-[10px] opacity-100 " >
+        <div class="flex flex-col items-center justify-center shadow-xl bg-white py-[9px] rounded-lg border hover:bg-[#cccccc] transition ease-in-out delay-350">
+            <div onclick="addCardPartOne(event)" class="addCard"> + Add Card</div>
+            <div class="cardDetails hidden">
+                <input type="text" placeholder="Enter Card Title" class="border-[#0079BF] border-2 rounded-md">
+                <div class="flex justify-start items-center gap-[5px] mt-[10px]">
+                    <button onclick="addCardPartTwo(event)" class="bg-[#0079BF] px-[7px] py-[5px] text-white rounded-md">Add</button>
+                    <svg onclick="addCardPartOneReverse(event)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="closeIcon"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+________________________________________________________________________________
+
+
+
