@@ -168,7 +168,8 @@ document.addEventListener('DOMContentLoaded',()=>{
     subTotalPriceOfItems(tableBody);
 
     //adding the listener for add item button button for adding an item in the table
-    addItem.addEventListener('click',()=>{
+    addItem.addEventListener('click',(event)=>{
+        event.preventDefault();
         createItem();
         subTotalPriceOfItems(tableBody);
         renderTaxRate(taxRate.value);
@@ -239,7 +240,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     }
     };
 
-
     //rendering the cureency symbols and related stuffs
     const renderCurrencyStuff = ()=>{
         // console.log(symbol);
@@ -296,7 +296,8 @@ document.addEventListener('DOMContentLoaded',()=>{
         renderCurrencyStuff();
     });
 
-    reviewBtn.addEventListener('click',()=>{
+    reviewBtn.addEventListener('click',(event)=>{
+        event.preventDefault();
         tableBodypop.innerHTML = '';
         const subtotalPop = document.getElementById('subtotalpop');
         const totalPop = document.getElementById('totalpop');
@@ -386,5 +387,17 @@ document.addEventListener('DOMContentLoaded',()=>{
         mainPopUp.style.display = 'none';
     })
 
-    
-})
+    const downloadpdf = document.getElementById('download');
+
+    downloadpdf.addEventListener('click',(event)=>{
+        const invoiceNo = invoiceSection.children[0].children[1].value;
+        event.preventDefault();
+        var downloadPart = document.querySelector('.pdf-section');
+        // Download the content of "download-part" as a PDF
+        html2pdf(downloadPart, {
+            filename: `Invoice-${invoiceNo}.pdf`,
+            margin: 10,
+            jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        });
+    });
+});

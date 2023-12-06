@@ -58,7 +58,7 @@
                 </div>
                 <div class="notes-section w-[100%] p-1 py-4">
                     <strong>Notes:</strong><br>
-                    <textarea name="thanks-note" id="" cols="10" rows="1" class="back-every rounded-sm min-w-[100%]"></textarea>
+                    <textarea name="thanks-note" id="" cols="10" rows="1" class="back-every rounded-sm min-w-[100%]" placeholder="Thanks for your Business"></textarea>
                 </div>
         </section>
         <section class="alter-view-section md:min-w-[400px] p-1 flex flex-col gap-8">
@@ -144,7 +144,7 @@
                 </div>
                 <div class="buttons-section bg-white flex gap-4 px-4 pt-10 pb-4">
                     <button class="grow rounded-lg text-center py-2 bg-blue-600 text-white active:scale-[0.97] duration-300 ease-in-out"><i class="fa-regular fa-paper-plane"></i> Send Invoice</button>
-                    <button class=" grow rounded-lg text-center py-2 border border-blue-600 text-blue-600 hover:text-white hover:bg-blue-600 duration-300 ease-in-out active:scale-[0.97]"><i class="fa-solid fa-cloud-arrow-down"></i> Download Copy</button>
+                    <button id="download" class=" grow rounded-lg text-center py-2 border border-blue-600 text-blue-600 hover:text-white hover:bg-blue-600 duration-300 ease-in-out active:scale-[0.97]"><i class="fa-solid fa-cloud-arrow-down"></i> Download Copy</button>
                 </div>
             </div>
         </div>
@@ -152,5 +152,6 @@
     
     <script defer src="script.js"></script>
     <script src="apikey.js"></script>
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
 </body>
 </html>
