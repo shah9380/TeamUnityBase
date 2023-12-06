@@ -1,4 +1,4 @@
-# TeamUnityBase - Misbah
+# TeamUnityBase - Invoice Generator
 
 Welcome to TeamUnityBase's Misbah project! This application is designed to streamline the process of generating invoices with dynamic currency conversion, real-time price updates, and the ability to download invoices as PDFs.
 
