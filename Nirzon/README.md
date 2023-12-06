@@ -13,6 +13,15 @@ Working on adding the extension to chrome webstore, link will be updated...
 - Support for multiple tabs
 - Support for multiple YouTube pages
 
+## Tech Used
+
+- Chromium APIs and permissions
+- JavaScript
+- HTML
+- CSS
+- Tailwind
+- DaisyUI
+
 ## Changelog
 
 ### 1.1
