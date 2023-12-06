@@ -24,7 +24,7 @@ To modify contents of the card: click on task 1, this will open a popup. By defa
 ![image](https://github.com/shah9380/TeamUnityBase/assets/38095510/8a38bbde-4c78-4993-8a4a-6cd607b74d71)
 
 
-To create a card > Click on "+ Add Card" button. This will add a text field along with an add and canel button. Here if you click on add > a new card will be created. Whereas if you click on "x" the box design will move to the previous state.
+To create a card > Click on "+ Add Card" button. This will add a text field along with an add and cancel button. Here if you click on add > a new card will be created. Whereas if you click on "x" the box design will move to the previous state.
 ![image](https://github.com/shah9380/TeamUnityBase/assets/38095510/3df3042a-4f9c-4fdb-8a97-0205149b6b13)
 ![image](https://github.com/shah9380/TeamUnityBase/assets/38095510/ea3fe9ea-7153-4d67-b9ea-fd677a259475)
 
