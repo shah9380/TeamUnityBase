@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trello</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <link rel="icon" href="./Assets/thumbIcon.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="./common.css">
+</head>
+<body class="bg-[url('./Assets/background.jpg')] bg-cover" id="body">
+    <h1 class="text-white text-3xl font-bold pl-[1%] mb-[1%]">Trello Board</h1>
+
+    <div class="containerAll ml-[2%] flex gap-[2%]">
+
+        <!-- change made draggable = true -->
+        <div class="oneCard bg-[#cccccc]/50 text-[#17394d] w-[290px] px-[10px] py-[20px] rounded h-min" draggable="true">
+            <div class="heading flex justify-between font-bold">
+                <p>Discover</p>
+                <!-- onclick="deleteBoard()" -->
+                <!-- to create a dropdown for 3 dots - option to delete the card -->
+                <div class="dropdown">
+                    <!-- issue onclick="this.parentElement.querySelector('.dropdown-menu').style.opacity=1 -->
+                    <a class="link" onclick="this.parentElement.querySelector('.dropdown-menu').style.display='block'"><span class="material-symbols-outlined">more_horiz</span></a>
+                    <div class="dropdown-menu" onclick="deleteBoard(event)" >
+                        Delete Board
+                    </div>
+                </div>
+            </div>
+            <div class="data bg-[#f8f8f8] p-[10px] rounded-[5px] flex flex-col gap-[10px] opacity-100" >
+                <!-- change id added-->
+                <!-- change ondragover added -->
+                <div id="cardNo0" class="taskToDo p-[10px] flex flex-col gap-[10px] rounded-md border shadow-xl cursor-pointer">
+
+                    <div class="flex justify-between">
+                        <div class="tag bg-[#999966] text-[white] rounded-full px-[3%] py-[1%] mw-auto">
+                            Frontend
+                        </div> 
+                        <p onclick="deleteCard(event)">Delete Card</p>
+                    </div>
+                    
+
+                    <div class="taskHeading font-bold" >
+                        <div onclick="popUp(event)">Task 1</div>
+                    </div>
+
+                    <div class="taskContent">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="17" y1="10" x2="3" y2="10"></line><line x1="21" y1="6" x2="3" y2="6"></line><line x1="21" y1="14" x2="3" y2="14"></line><line x1="17" y1="18" x2="3" y2="18"></line></svg>
+                    </div>
+
+                    <div class="lastPartOfACard flex bg-[#f8f8f8] text-[14px] flex justify-between px-[15px]">
+                        <div class="clockAndDate flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="card-footer-icon"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <p>&nbsp;2023-12-06</p>
+                        </div>
+                        <div class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="card-footer-icon"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                            &nbsp;<p>0/2</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex flex-col items-center justify-center shadow-xl bg-white py-[9px] rounded-lg border hover:bg-[#cccccc] transition ease-in-out delay-350">
+                    <div onclick="addCardPartOne(event)" class="addCard"> + Add Card</div>
+                    <div class="cardDetails hidden">
+                        <input type="text" placeholder="Enter Card Title" class="border-[#0079BF] border-2 rounded-md">
+                        <div class="flex justify-start items-center gap-[5px] mt-[10px]">
+                            <button onclick="addCardPartTwo(event)" class="bg-[#0079BF] px-[7px] py-[5px] text-white rounded-md">Add</button>
+                            <svg onclick="addCardPartOneReverse(event)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="closeIcon"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Add Board -->
+        <div class="flex flex-col items-center justify-center shadow-xl bg-white py-[9px] rounded-lg border hover:bg-[#cccccc] transition ease-in-out delay-350 h-min min-w-[290px]">
+            <div onclick="addBoardPartOne(event)" class="addCard"> Add Board</div>
+            <div class="cardDetails hidden">
+                <input type="text" placeholder="Add board Name" class="border-[#0079BF] border-2 rounded-md">
+                <div class="flex justify-start items-center gap-[5px] mt-[10px]">
+                    <button onclick="addBoardPartTwo(event)" class="bg-[#0079BF] px-[7px] py-[5px] text-white rounded-md">Add board</button>
+                    <svg onclick="addBoardPartOneReverse(event)" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="closeIcon"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+    <!-- end of html css code -->
+    <script src="./script.js"></script>
+</body>
+</html>
